@@ -96,6 +96,8 @@ public class FicheroManager {
 			this.bwEmpleados.flush();
 		}
 		anadirSalarios(emps);	
+		this.bwEmpleados.close();
+		this.bwSalarios.close();
 	}
 
 	public void anadirSalarios(List<Empleado> emps) throws IOException {

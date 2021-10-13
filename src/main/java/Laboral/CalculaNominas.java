@@ -58,6 +58,8 @@ public class CalculaNominas {
 					String valor = sc.nextLine();
 					
 					dm.actualizarEmpleado(dni, valor, aux2);
+					dm.actualizarSalario(dni, String.valueOf(nom.sueldo(dm.selectEmpleado(dni))));
+					
 					break;
 				case 4:
 					System.out.println("Introduce el dni del empleado");
@@ -76,9 +78,9 @@ public class CalculaNominas {
 					break;
 				case 6:
 
-					fm = new FicheroManager("E:/Users/Jesus/eclipse-workspace/gestiondenominas/doc/empleados.txt",
-							"E:/Users/Jesus/eclipse-workspace/gestiondenominas/doc/salarios.dat",
-							"E:/Users/Jesus/eclipse-workspace/gestiondenominas/doc/empleadosNuevos.txt");
+					fm = new FicheroManager("/home/jesus/eclipse-workspace/Nomina-P2/doc/empleados.txt",
+							"/home/jesus/eclipse-workspace/Nomina-P2/doc/salarios.dat",
+							"/home/jesus/eclipse-workspace/Nomina-P2/doc/empleadosNuevos.txt");
 					System.out.println("Se ha creado el Fichero Manager");
 					
 					dnis = dm.selectDNIs();

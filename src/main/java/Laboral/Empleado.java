@@ -13,15 +13,11 @@ public class Empleado extends Persona {
 	 * @param nombre	Nombre completo de la persona.
 	 * @param dni	Código del Documento Nacional de Identidad de la persona.	
 	 * @param sexo	Sexo asignado a la persona.
+	 * @throws DatosNoCorrectosException 
 	 */
-	public Empleado(String nombre, String dni, String sexo) {
+	public Empleado(String nombre, String dni, String sexo) throws DatosNoCorrectosException {
 		super(nombre, dni, sexo);
-		try {
-			setCategoria(1);
-		} catch (DatosNoCorrectosException dnce) {
-			System.out.println(dnce.getMessage());
-			System.exit(1);
-		}
+		setCategoria(1);
 		this.anyos = 0;
 	}
 
@@ -36,12 +32,7 @@ public class Empleado extends Persona {
 	 */
 	public Empleado(String nombre, String dni, String sexo, int categoria, int anyos) throws DatosNoCorrectosException{
 		super(nombre, dni, sexo);
-		try {
-			setCategoria(categoria);
-		} catch (DatosNoCorrectosException dnce) {
-			System.out.println(dnce.getMessage());
-			System.exit(1);
-		}
+		setCategoria(categoria);
 		if (anyos >= 0) {
 			this.anyos = anyos;
 		} else {
@@ -81,7 +72,7 @@ public class Empleado extends Persona {
 	 * Imprime por consola todos los datos del Empleado.
 	 */
 	public void imprime() {
-		System.out.println("Nombre: " + this.nombre + ", DNI: " + this.dni + ", Categoria: " + this.categoria
-				+ ", Años trabajados: " + this.anyos);
+		System.out.println("Nombre: " + this.nombre + ", DNI: " + this.dni 
+				+ ", Categoria: " + this.categoria + ", Años trabajados: " + this.anyos);
 	}
 }

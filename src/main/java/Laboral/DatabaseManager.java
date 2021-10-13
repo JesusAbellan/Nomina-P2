@@ -18,7 +18,7 @@ public class DatabaseManager {
 	private ResultSet rs;
 
 	public DatabaseManager() throws SQLException {
-		con = DriverManager.getConnection("jdbc:mysql://localhost:3306/MySQL", "root", "root");
+		con = DriverManager.getConnection("jdbc:mysql://localhost:3306/Nominas", "root", "");
 		st = con.createStatement();
 	}
 
@@ -56,7 +56,7 @@ public class DatabaseManager {
 	}
 
 	public void actualizarSalario(String dni, String valor) throws SQLException {
-		st.executeUpdate("UPDATE Nominas.nominas SET Sueldo = '" + valor + "' WHERE DNI = '" + dni + "';");
+		st.executeUpdate("UPDATE Nominas.nominas SET Sueldo = " + valor + " WHERE DNI = '" + dni + "';");
 	}
 
 	public void selectEmpleados() throws SQLException {
